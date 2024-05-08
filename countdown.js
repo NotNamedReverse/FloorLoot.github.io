@@ -19,6 +19,7 @@ function startCountdown(targetDate) {
         destructionTimerElement.text = "TIME UNTIL GLOBAL DESTRUCTION: " + `
             ${days}d ${hours}h ${minutes}m ${seconds}s
         `;
+        
     }
 
     updateTimer(); // initial call
