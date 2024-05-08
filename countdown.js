@@ -26,5 +26,6 @@ function startCountdown(targetDate) {
     const timerInterval = setInterval(updateTimer, 1000);
 }
 
+
 const targetDate = new Date("May 10, 2024 00:00:00").getTime();
 startCountdown(targetDate);
