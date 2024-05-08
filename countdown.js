@@ -1,3 +1,5 @@
+document.title = "SUPER STATE WAR!"
+
 function startCountdown(targetDate) {
     const destructionTimerElement = document.getElementById("DestructionTimer");
 
