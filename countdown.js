@@ -8,6 +8,7 @@ const targetDate = new Date(new Date().getFullYear(), 4, 16);
 
 // Function to update the countdown
 function updateCountdown() {
+    console.log("updating counter");
     const currentTime = new Date();
     const difference = targetDate - currentTime;
 
