@@ -19,12 +19,12 @@ function updateCountdown() {
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
     // Display the countdown
-    countdownElement.text = "TIME UNTIL GLOBAL DESTRUCTION: " +  `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownElement.textContent = "TIME UNTIL GLOBAL DESTRUCTION: " +  `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
     // When the countdown is over
     if (difference < 0) {
         clearInterval(interval);
-        countdownElement.text = "The countdown is over!";
+        countdownElement.textContent = "THE GLOBAL DESTRUCTION EVENT HAS STARTED!";
     }
 }
 
