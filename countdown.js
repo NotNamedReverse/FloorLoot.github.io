@@ -1,32 +1,31 @@
-document.title = "SUPER STATE WAR!"
+document.title = "SUPER STATE WAR!!";
 
-function startCountdown(targetDate) {
-    const destructionTimerElement = document.getElementById("DestructionTimer");
+// Get the element by ID
+const countdownElement = document.getElementById('DestructionTimer');
 
-    function updateTimer() {
-        const now = new Date();
-        const timeRemaining = targetDate - now;
+// Set the target date for the countdown (May 16th of the current year)
+const targetDate = new Date(new Date().getFullYear(), 4, 16);
 
-        if (timeRemaining <= 0) {
-            destructionTimerElement.innerHTML = "Time's up!";
-            clearInterval(timerInterval);
-            return;
-        }
+// Function to update the countdown
+function updateCountdown() {
+    const currentTime = new Date();
+    const difference = targetDate - currentTime;
 
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    // Calculate time left
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        destructionTimerElement.text = "TIME UNTIL GLOBAL DESTRUCTION: " + `
-            ${days}d ${hours}h ${minutes}m ${seconds}s
-        `;
-        
+    // Display the countdown
+    countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    // When the countdown is over
+    if (difference < 0) {
+        clearInterval(interval);
+        countdownElement.textContent = "The countdown is over!";
     }
-
-    updateTimer(); // initial call
-    const timerInterval = setInterval(updateTimer, 1000);
 }
 
-const targetDate = new Date("May 10, 2024 00:00:00").getTime();
-startCountdown(targetDate);
+// Update the countdown every second
+const interval = setInterval(updateCountdown, 1000);
